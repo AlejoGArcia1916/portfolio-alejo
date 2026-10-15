@@ -11,8 +11,8 @@ voy desarrollando durante mi aprendizaje.
 
 ## Tecnologías utilizadas
 
-- HTML5
-- CSS3
+- HTML
+- CSS
 - CSS Grid
 - Flexbox
 - Diseño responsive
