@@ -23,7 +23,7 @@ voy desarrollando durante mi aprendizaje.
 - Sección sobre mí
 - Tecnologías y herramientas
 - Tarjetas de proyectos
-- Formulario de contacto mediante email
+- Enlace de contacto por email
 - Descarga de CV
 
 ## Ver el proyecto
