@@ -1,12 +1,14 @@
+/* =========================================================
+  1. VARIABLES Y CONFIGURACIÓN GENERAL
+   ========================================================= */
 
-/* 1. Configuración general */
 :root {
   --background: #1f283f;
   --surface: #131d30;
   --border: #29364d;
   --text: #f1f5f9;
   --muted: #a6b3c7;
-  --accent: #38bdf8;;
+  --accent: #38bdf8;
   --accent-hover: #7dd3fc;
 }
 
@@ -27,7 +29,36 @@ body {
   line-height: 1.7;
 }
 
-/* 2. Navegación */
+h1 {
+  font-size: clamp(1.8rem, 3.2vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin: 20px 0;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin: 0 0 20px;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+p {
+  color: var(--muted);
+  max-width: 65ch;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 5px;
+}
+
+/* =========================================================
+  2. ENCABEZADO Y NAVEGACIÓN
+   ========================================================= */
+
 header {
   position: sticky;
   top: 0;
@@ -68,18 +99,37 @@ nav a:hover {
   color: var(--accent);
 }
 
-a:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 5px;
+/* Botón para alternar entre modo claro y oscuro */
+#cambiar-tema {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--accent);
+  padding: 9px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
-/* 3. Contenido principal */
+#cambiar-tema:hover {
+  background: var(--surface);
+}
+
+#cambiar-tema:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+  3. CONTENIDO Y PRESENTACIÓN PRINCIPAL
+   ========================================================= */
+
 main {
   width: min(100% - 40px, 1000px);
   margin: 0 auto;
   padding: 32px 0 72px;
 }
-
 
 .intro {
   display: grid;
@@ -90,23 +140,28 @@ main {
   padding: 40px 0 55px;
 }
 
+.intro-texto h1 {
+  margin-bottom: 24px;
+}
+
 .intro-texto p {
   margin-bottom: 14px;
   line-height: 1.7;
 }
 
-.intro-texto h1 {
-  margin-bottom: 24px;
+.intro p {
+  font-size: 1.1rem;
+  max-width: 620px;
 }
 
 .intro-imagen img {
+  display: block;
   width: 100%;
   height: 380px;
   object-fit: cover;
   object-position: center 25%;
-  border-radius: 18px;
   border: 2px solid var(--border);
-  display: block;
+  border-radius: 18px;
 }
 
 .tag {
@@ -116,37 +171,26 @@ main {
   letter-spacing: 2px;
 }
 
-h1 {
-  font-size: clamp(1.8rem, 3.2vw, 3rem);
-  line-height: 1.15;
-  letter-spacing: -1px;
-  margin: 20px 0;
+/* =========================================================
+  4. SECCIONES
+   ========================================================= */
+
+#sobre-mi,
+#proyectos,
+#contacto {
+  margin-top: 56px;
+  padding-top: 28px;
 }
 
-h2 {
-  font-size: 1.8rem;
-  margin: 0 0 20px;
+#tecnologias {
+  margin-top: 48px;
+  padding-top: 28px;
 }
 
-h3 {
-  margin-top: 0;
-}
+/* =========================================================
+  5. BOTONES GENERALES
+   ========================================================= */
 
-p {
-  color: var(--muted);
-  max-width: 65ch;
-}
-
-footer p {
-  margin-inline: auto;
-}
-
-.intro p {
-  font-size: 1.1rem;
-  max-width: 620px;
-}
-
-/* 4. Botón principal */
 .button {
   display: inline-block;
   margin-top: 20px;
@@ -154,8 +198,8 @@ footer p {
   background: var(--accent);
   color: #08202a;
   text-decoration: none;
-  font-weight: bold;
   text-align: center;
+  font-weight: bold;
   border-radius: 8px;
   transition: transform 0.2s, background 0.2s;
 }
@@ -165,13 +209,37 @@ footer p {
   background: var(--accent-hover);
 }
 
-/* 5. Tarjetas de proyectos */
-#sobre-mi,
-#proyectos,
-#contacto {
-  margin-top: 56px;
-  padding-top: 28px;
+/* =========================================================
+  6. TECNOLOGÍAS Y HERRAMIENTAS
+   ========================================================= */
+
+.tecnologias-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
 }
+
+.tecnologia {
+  padding: 10px 18px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.tecnologia:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  background-color: #1a2b46;
+}
+
+/* =========================================================
+  7. PROYECTOS
+   ========================================================= */
 
 #proyectos {
   display: grid;
@@ -201,7 +269,81 @@ footer p {
   margin-bottom: 0;
 }
 
-/* 6. Pie de página */
+.project-imagen {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 22px;
+}
+
+/* Espacio para proyectos que todavía no tienen captura */
+.project-placeholder {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  background: #24354f;
+  color: var(--muted);
+  border-radius: 10px;
+  margin-bottom: 22px;
+}
+
+.project-tecnologias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.project-tecnologias span {
+  padding: 5px 12px;
+  background: #24354f;
+  color: #7dd3fc;
+  border-radius: 6px;
+  font-size: 0.8rem;
+}
+
+.project-enlaces {
+  margin-top: 22px;
+}
+
+.project-enlaces a {
+  color: var(--accent);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.project-enlaces a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+  8. CONTACTO Y DESCARGA DE CV
+   ========================================================= */
+
+.contacto-botones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.button-cv {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+}
+
+.button-cv:hover {
+  background: var(--accent);
+  color: #08202a;
+}
+
+/* =========================================================
+  9. PIE DE PÁGINA
+   ========================================================= */
+
 footer {
   text-align: center;
   padding: 28px 20px;
@@ -209,7 +351,59 @@ footer {
   font-size: 0.9rem;
 }
 
-/* 7. Adaptación a celulares */
+footer p {
+  margin-inline: auto;
+}
+
+/* =========================================================
+  10. MODO CLARO
+   ========================================================= */
+
+body.modo-claro {
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --border: #cbd5e1;
+  --text: #0f172a;
+  --muted: #475569;
+  --accent: #0369a1;
+  --accent-hover: #075985;
+}
+
+body.modo-claro header {
+  background: rgba(248, 250, 252, 0.95);
+}
+
+body.modo-claro .button:not(.button-cv) {
+  color: #ffffff;
+}
+
+body.modo-claro .button-cv:hover {
+  color: #ffffff;
+}
+
+/* Evita que las etiquetas se vuelvan oscuras al pasar el mouse en modo claro. */
+body.modo-claro .tecnologia:hover {
+  background-color: var(--surface);
+}
+
+/* =========================================================
+  11. DISEÑO ADAPTABLE
+   ========================================================= */
+
+/* Tablets y pantallas de hasta 760px */
+@media (max-width: 760px) {
+  .intro {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .intro-imagen {
+    width: min(100%, 300px);
+    margin: 0 auto;
+  }
+}
+
+/* Celulares de hasta 600px */
 @media (max-width: 600px) {
   html {
     scroll-padding-top: 130px;
@@ -247,7 +441,10 @@ footer {
   }
 }
 
-/* 8. Respeto por la preferencia de movimiento reducido */
+/* =========================================================
+  12. ACCESIBILIDAD: MOVIMIENTO REDUCIDO
+   ========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -255,135 +452,15 @@ footer {
 
   nav a,
   .button,
-  .project {
+  .project,
+  .tecnologia,
+  #cambiar-tema {
     transition: none;
   }
 
   .button:hover,
-  .project:hover {
+  .project:hover,
+  .tecnologia:hover {
     transform: none;
   }
-}
-
-@media (max-width: 760px) {
-  .intro {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .intro-imagen {
-    width: min(100%, 300px);
-    margin: 0 auto;
-  }
-}
-
-
-/* Tecnologías y herramientas */
-
-#tecnologias {
-  margin-top: 48px;
-  padding-top: 28px;
-}
-
-.tecnologias-lista {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 24px;
-}
-
-.tecnologia {
-  padding: 10px 18px;
-  background: var(--surface);
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  transition: border-color 0.2s ease,
-              transform 0.2s ease;
-}
-
-.tecnologia:hover {
-  border-color: var(--accent);
-  transform: translateY(-3px);
-  background-color: #1a2b46;
-}
-
-
-/* Botones de contacto */
-
-.contacto-botones {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 16px;
-}
-
-.button-cv {
-  background: transparent;
-  color: var(--accent);
-  border: 2px solid var(--accent);
-}
-
-.button-cv:hover {
-  background: var(--accent);
-  color: #08202a;
-}
-
-
-/* Imagen de los proyectos */
-
-.project-imagen {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: 10px;
-  display: block;
-  margin-bottom: 22px;
-}
-
-/* Imagen provisional para futuros proyectos */
-
-.project-placeholder {
-  aspect-ratio: 16 / 9;
-  background: #24354f;
-  color: var(--muted);
-  border-radius: 10px;
-  display: grid;
-  place-items: center;
-  margin-bottom: 22px;
-}
-
-/* Tecnologías utilizadas */
-
-.project-tecnologias {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 20px;
-}
-
-.project-tecnologias span {
-  padding: 5px 12px;
-  background: #24354f;
-  color: #7dd3fc;
-  border-radius: 6px;
-  font-size: 0.8rem;
-}
-
-/* Enlaces de los proyectos */
-
-.project-enlaces {
-  margin-top: 22px;
-}
-
-.project-enlaces a {
-  color: var(--accent);
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.project-enlaces a:hover {
-  text-decoration: underline;
 }
