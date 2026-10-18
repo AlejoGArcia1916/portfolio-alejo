@@ -2,31 +2,28 @@
 const botonTema = document.querySelector("#cambiar-tema");
 const temaGuardado = localStorage.getItem("tema");
 
-if(temaGuardado === "claro"){
+if (temaGuardado === "claro") {
     document.body.classList.add("modo-claro");
-    botonTema.textContent = "Modo oscuro";
-}else{
-    botonTema.textContent ="Modo claro";
+    botonTema.textContent = "🌙 Modo oscuro";
+} else {
+    botonTema.textContent = "☀️ Modo claro";
 }
 
-
-
 botonTema.addEventListener("click", function() {
+
     document.body.classList.toggle("modo-claro");
 
     const modoClaroActivo = document.body.classList.contains("modo-claro");
 
-    if(modoClaroActivo){
-        botonTema.textContent = "Modo oscuro";
+    if (modoClaroActivo) {
+        botonTema.textContent = "🌙 Modo oscuro";
         localStorage.setItem("tema", "claro");
-    }
-    else{
-        botonTema.textContent ="Modo claro";
+    } else {
+        botonTema.textContent = "☀️ Modo claro";
         localStorage.setItem("tema", "oscuro");
     }
 
-    }
-);
+});
 
 
 
